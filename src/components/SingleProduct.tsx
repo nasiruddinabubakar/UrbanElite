@@ -9,7 +9,7 @@ const imageArray = [
 ];
 
 export default function SingleProduct() {
-  const [imageNo, setImageNo] = useState(0);
+  const [imageNo, setImageNo] = useState<number>(0);
 
   function handleSetImage(index: number) {
     setImageNo(index);
@@ -51,8 +51,8 @@ export function GalleryView({
   border = "",
 }: GalleryViewProps) {
   return (
-    <div style={{ border: border }} className="preview_gallery">
-      <img src={image} alt="fa1" onMouseEnter={() => onChangeImage(i)}></img>
+    <div  className="preview_gallery">
+      <img style={{ border: border }} src={image} alt="fa1" onMouseEnter={() => onChangeImage(i)}></img>
     </div>
   );
 }
