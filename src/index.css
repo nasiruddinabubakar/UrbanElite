@@ -194,10 +194,7 @@ justify-content: space-around;
   margin-top: 1rem;
   display:flex
 }
-.product__details h2{
-  /* margin-top: 4rem; */
-  
-}
+
 .product__details h3{
   /* margin-top: 3rem; */
   font-size: 2rem;
@@ -245,46 +242,69 @@ margin-top: 0.9rem;
   font-size: 1.1rem;
   margin-top: 1rem;
 }
-.featured__products {
-  padding: 0rem 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1.2fr));
-  gap: 2rem;
-  justify-content: space-around;
+.featured__heading{
+  color: var(--bg-lightcolor);
+  width: 100%;
+  display: flex;
+  margin-top: 3rem;
+  justify-content : center;
 }
+.featured__heading >h1{
+  font-size: 2rem;
+}
+.featured__products {
+  margin-top: 3rem;
+  padding: 0rem 1rem;
+  display: flex;
+  /* grid-template-columns: repeat(auto-fit, minmax(40%, 1.2fr)); */
+  gap: 2rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.single__product:hover{
 
+  flex-basis: 23rem;
+  transition: 0.32s ease;
+}
 .single__product {
+  flex-grow: 0; /* Prevent the inner div from growing */
+  flex-basis: 18rem; /* Set the initial width of the inner div */
+  min-width: 20rem; 
+  
+  /* width: 25%; */
   border-radius: 1rem;
   margin-top: 2rem;
   border: 2px solid rgb(216, 211, 211);
   transition: 0.32s ease;
+
 }
 .single__product:hover{
   transition: 0.32s ease;
   box-shadow: 0 0 10px 4px var(--bg-lightcolor);
 }
-.banner__image {
-  width: 100%; /* Ensure the container takes up the entire width of its parent */
-  height: 2.72vh; /* Set a fixed height to maintain aspect ratio */
-  padding-bottom: 100%; /* Maintain the aspect ratio (1:1 in this example) */
-  position: relative; /* Position the container for absolute positioning */
-}
 
-.banner__image > img {
-  position: absolute; /* Position the image absolutely within the container */
-  width: 100%; /* Ensure the image takes up the entire width of the container */
-  height: 100%; /* Ensure the image takes up the entire height of the container */
-  border-radius: 1rem;
+
+.banners__image > img {
+  /* display: none; */
+  aspect-ratio: 4/4;
+  width: 100%; 
+  object-fit: contain;
+  
+  border-radius: 2rem;
 }
 .details__feature__product{
+  /*
+    /* text-align: center; */
   
-    text-align: center;
-  
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
   padding-left: 2rem;
-  padding-bottom: 1rem;
+  
 }.details__feature__product >h3 {
+  font-size: 16px;
   margin-top: 1.7rem;
+}
+.details__feature__product >h4 {
+  font-size: 15px;
 }
 
 
