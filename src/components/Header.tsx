@@ -18,6 +18,14 @@ export default function Header() {
       </div>
       <nav className="navlist">
         <ul className="navli">
+        {/* <li>
+            <div className="nav__div">
+              <i>
+                <FontAwesomeIcon icon={faSearch} />
+              </i>
+              <label>Search</label>
+            </div>
+          </li> */}
           <li>
             <div className="nav__div">
               <i>
