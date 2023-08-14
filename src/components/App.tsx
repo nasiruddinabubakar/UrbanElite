@@ -8,9 +8,9 @@ export default function App() {
   return (
             <>
                 <Header />
-                 <SingleProduct /> 
-                <FeaturedProducts />
-                {/* <Signup /> */}
+                 {/* <SingleProduct />  */}
+                {/* <FeaturedProducts /> */}
+                <Signup />
 
             </>
   );
