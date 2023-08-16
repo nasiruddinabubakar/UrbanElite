@@ -1,0 +1,129 @@
+const Products: FeaturedViewProps[] = [
+  {
+    category: "Men's Wear",
+    description: "Elevate your casual wardrobe with the Gildran Ultra T-Shirt, a perfect
+        blend of premium quality and contemporary design. Crafted to perfection,
+        this iconic t-shirt promises an unmatched level of comfort, making it an
+        essential addition to your everyday wear. The Gildran Ultra T-Shirt is
+        expertly crafted from a luxurious blend of ultra-soft cotton and
+        lightweight polyester. Experience a cloud-like feel against your skin,
+        ensuring all-day comfort whether you're on the move or relaxing at home.
+        Designed with a modern, tailored fit, the Gildran Ultra T-Shirt strikes
+        the perfect balance between relaxed and stylish. Its flattering
+        silhouette complements various body types, making it a versatile choice
+        for any occasion.",
+    id: 1,
+    image: [
+      "/products/f1.jpg",
+      "/products/f2.jpg",
+      "/products/f3.jpg",
+      "/products/f4.jpg",
+      "/products/f5.jpg",
+    ],
+
+    price: 132.2,
+    rating: [],
+    title: "Miami Vibe T-Shirt",
+  },
+  {
+    category: "Men's Wear",
+    description: "Elevate your casual wardrobe with the Gildran Ultra T-Shirt, a perfect
+        blend of premium quality and contemporary design. Crafted to perfection,
+        this iconic t-shirt promises an unmatched level of comfort, making it an
+        essential addition to your everyday wear. The Gildran Ultra T-Shirt is
+        expertly crafted from a luxurious blend of ultra-soft cotton and
+        lightweight polyester. Experience a cloud-like feel against your skin,
+        ensuring all-day comfort whether you're on the move or relaxing at home.
+        Designed with a modern, tailored fit, the Gildran Ultra T-Shirt strikes
+        the perfect balance between relaxed and stylish. Its flattering
+        silhouette complements various body types, making it a versatile choice
+        for any occasion.",
+    id: 2,
+    image: [
+      "/products/f3.jpg",
+      "/products/f2.jpg",
+      "/products/f1.jpg",
+      "/products/f4.jpg",
+      "/products/f5.jpg",
+    ],
+
+    price: 112.2,
+    rating: [],
+    title: "Swagger T-Shirt",
+  },
+  {
+    category: "Men's Wear",
+    description: "  Elevate your style with our sophisticated formal shirt. Meticulously
+        crafted for timeless elegance, this shirt combines exquisite tailoring
+        with premium materials. The classic design is complemented by a refined
+        collar and cuffs, adding a touch of distinction to any ensemble. Whether
+        worn in the boardroom or at special occasions, this shirt exudes
+        confidence and refined charm. Make a lasting impression with a garment
+        that embodies the essence of refined sophistication. Experience
+        impeccable comfort and unmatched versatility, as this formal shirt
+        seamlessly transitions from day to night. Elevate your wardrobe with a
+        garment that embodies the perfect blend of style and sophistication.",
+    id: 3,
+    image: [
+      "/products/n5.jpg",
+      "/products/n1.jpg",
+      "/products/n2.jpg",
+      "/products/n3.jpg",
+      "/products/n7.jpg",
+    ],
+
+    price: 200.2,
+    rating: [],
+    title: "Formal Shirt",
+  },
+  {
+    category: "FootWear",
+    description: "Forget what you thought you knew about stability shoes. The Gaviota 5’s
+        new stabilizing H-Frame™ has allowed us to implement softer foams than
+        ever before. Delivering inherent stability without compromising
+        cushioning, we’ve paired our intuitive H-Frame base with a breathable
+        creel jacquard upper, ultra-plush collar, and Bondi-level cushioning to
+        deliver that signature HOKA ride. Plush tongue and collar - Designed for
+        ankle-cradling comfort Creel jacquard mesh upper - Provides enhanced
+        breathability Soft EVA foam - Affords cloud-like cushioning The Gaviota
+        5 contains our H-Frame(TM) technology designed to prevent excessive
+        inward roll, or overpronation, without overcorrecting your gait. The
+        Gaviota 5 features a higher bed of soft cushion, designed to provide a
+        forgiving impact and ride.",
+    id: 4,
+    image: [
+      "/products/shoe1.jpg",
+      "/products/shoe2.jpg",
+      "/products/shoe3.jpg",
+      "/products/shoe4.jpg",
+      "/products/shoe5.jpg",
+    ],
+
+    price: 500.2,
+    rating: [],
+    title: "Hooka Sports",
+  },
+ 
+  {
+    category: "Accessories", 
+    description:  "These new models inherit the octagon form that was also employed for
+        the original DW-5000C. Analog-digital timekeeping comes packed into a
+        no-nonsense simple design without sacrificing G-SHOCK level toughness.
+        High-strength resin material, which is reinforced with carbon fibers,
+        makes it possible to create a case that is a mere 11.8 mm thin, which is
+        the thinnest among G-SHOCK combination models LED:White Size of case:
+        48.5×45.4×11.8mm Total weight: 51g Mineral Glass",
+    id: 5,
+    image: [
+      "/products/gshock1.jpg",
+      "/products/gshock2.jpg",
+      "/products/gshock3.jpg",
+      "/products/gshock4.jpg",
+      "/products/gshock5.jpg",
+    ],
+
+    price: 750.2,
+    rating: [],
+    title: "Gshcok Watch",
+  },
+];

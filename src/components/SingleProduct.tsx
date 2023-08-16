@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 interface FeaturedViewProps {
   category: string;
@@ -13,7 +13,7 @@ interface FeaturedViewProps {
 
 const Products: FeaturedViewProps[] = [
   {
-    category: "",
+    category: "Men's Wear",
     description: "",
     id: 1,
     image: [
@@ -29,7 +29,7 @@ const Products: FeaturedViewProps[] = [
     title: "Miami Vibe T-Shirt",
   },
   {
-    category: "",
+    category: "Mens'Wear",
     description: "",
     id: 2,
     image: [
@@ -46,7 +46,7 @@ const Products: FeaturedViewProps[] = [
   },
   {
     category: "",
-    description: "",
+    description: "Men's Wear",
     id: 3,
     image: [
       "/products/n5.jpg",
@@ -60,32 +60,80 @@ const Products: FeaturedViewProps[] = [
     rating: [],
     title: "Formal Shirt",
   },
+  {
+    category: "FootWear",
+    description: "",
+    id: 4,
+    image: [
+      "/products/shoe1.jpg",
+      "/products/shoe2.jpg",
+      "/products/shoe3.jpg",
+      "/products/shoe4.jpg",
+      "/products/shoe5.jpg",
+    ],
+
+    price: 500.2,
+    rating: [],
+    title: "Hooka Sports",
+  },
+  {
+    category: "Accessories",
+    description: "",
+    id: 5,
+    image: [
+      "/products/gshock1.jpg",
+      "/products/gshock2.jpg",
+      "/products/gshock3.jpg",
+      "/products/gshock4.jpg",
+      "/products/gshock5.jpg",
+    ],
+
+    price: 750.2,
+    rating: [],
+    title: "Gshcok Watch",
+  },
+  {
+    category: "FootWear",
+    description: "",
+    id: 6,
+    image: [
+      "/products/ltshoe1.jpg",
+      "/products/ltshoe2.jpg",
+      "/products/ltshoe3.jpg",
+      "/products/ltshoe4.jpg",
+      "/products/ltshoe5.jpg",
+    ],
+
+    price: 999,
+    rating: [],
+    title: "Groove Chukka Boots",
+  },
 ];
-
-
-
 
 export default function SingleProduct() {
   const [imageNo, setImageNo] = useState<number>(0);
-  const {id} = useParams();
+  const { id } = useParams();
   if (!id) {
     // Handle the case where "id" is undefined or falsy
     return <div>No product ID provided</div>;
   }
   const productId = parseInt(id, 10);
- 
+
   function handleSetImage(index: number) {
     setImageNo(index);
   }
-  
+
   return (
     <main className="section_product">
       <div className="image_section">
         <div className="banner__image">
-          <img src= {Products[productId-1].image[imageNo]} alt="productpic"></img>
+          <img
+            src={Products[productId - 1].image[imageNo]}
+            alt="productpic"
+          ></img>
         </div>
         <div className="gallery">
-          {Products[productId-1].image.map((ee, i) => (
+          {Products[productId - 1].image.map((ee, i) => (
             <GalleryView
               image={ee}
               i={i}
@@ -96,7 +144,7 @@ export default function SingleProduct() {
           ))}
         </div>
       </div>
-      <ProductDetails productId={productId}/>
+      <ProductDetails productId={productId} />
     </main>
   );
 }
@@ -105,7 +153,6 @@ interface GalleryViewProps {
   i: number;
   onChangeImage: (index: number) => void;
   border?: string;
-  
 }
 
 export function GalleryView({
@@ -113,44 +160,45 @@ export function GalleryView({
   i,
   onChangeImage,
   border = "",
-  
 }: GalleryViewProps) {
   return (
-    <div  className="preview_gallery">
-      <img style={{ border: border }} src={image} alt="fa1" onMouseEnter={() => onChangeImage(i)}></img>
+    <div className="preview_gallery">
+      <img
+        style={{ border: border }}
+        src={image}
+        alt="fa1"
+        onMouseEnter={() => onChangeImage(i)}
+      ></img>
     </div>
   );
 }
 
-export function ProductDetails({productId}:any) {
- 
+export function ProductDetails({ productId }: any) {
   return (
     <div className="product__details">
-      <CategoryName id={productId}/>
-      <PriceQuantity id={productId}/>
+      <CategoryName id={productId} />
+      <PriceQuantity id={productId} />
       <Paragraph />
     </div>
   );
 }
-export function CategoryName({id }: any) {
- 
+export function CategoryName({ id }: any) {
   return (
     <>
       {" "}
       <div>
-        <span>Home/T-shirt</span>
+        <span>Home{Products[id-1].category}</span>
       </div>
       <div>
-        <h2>{Products[id-1].title}</h2>
+        <h2>{Products[id - 1].title}</h2>
       </div>
     </>
   );
 }
-export function PriceQuantity({id}:any) {
- 
+export function PriceQuantity({ id }: any) {
   return (
     <div className="select_op">
-      <h3>{Products[id-1].price} Pkr</h3>
+      <h3>{Products[id - 1].price} Pkr</h3>
       <select>
         <option value="" disabled selected>
           Size
@@ -172,17 +220,16 @@ export function Paragraph() {
     <div className="detail__para">
       <h2>Product Details</h2>
       <p>
-        Elevate your casual wardrobe with the Gildran Ultra T-Shirt, a perfect
-        blend of premium quality and contemporary design. Crafted to perfection,
-        this iconic t-shirt promises an unmatched level of comfort, making it an
-        essential addition to your everyday wear. The Gildran Ultra T-Shirt is
-        expertly crafted from a luxurious blend of ultra-soft cotton and
-        lightweight polyester. Experience a cloud-like feel against your skin,
-        ensuring all-day comfort whether you're on the move or relaxing at home.
-        Designed with a modern, tailored fit, the Gildran Ultra T-Shirt strikes
-        the perfect balance between relaxed and stylish. Its flattering
-        silhouette complements various body types, making it a versatile choice
-        for any occasion.
+        Elevate your style with our sophisticated formal shirt. Meticulously
+        crafted for timeless elegance, this shirt combines exquisite tailoring
+        with premium materials. The classic design is complemented by a refined
+        collar and cuffs, adding a touch of distinction to any ensemble. Whether
+        worn in the boardroom or at special occasions, this shirt exudes
+        confidence and refined charm. Make a lasting impression with a garment
+        that embodies the essence of refined sophistication. Experience
+        impeccable comfort and unmatched versatility, as this formal shirt
+        seamlessly transitions from day to night. Elevate your wardrobe with a
+        garment that embodies the perfect blend of style and sophistication.
       </p>
     </div>
   );

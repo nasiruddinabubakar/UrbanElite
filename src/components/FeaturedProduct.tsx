@@ -5,7 +5,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Products: FeaturedViewProps[] = [
   {
-    category: "",
+    category: "Men's Wear",
     description: "",
     id: 1,
     image: [
@@ -21,7 +21,7 @@ const Products: FeaturedViewProps[] = [
     title: "Miami Vibe T-Shirt",
   },
   {
-    category: "",
+    category: "Mens'Wear",
     description: "",
     id: 2,
     image: [
@@ -38,7 +38,7 @@ const Products: FeaturedViewProps[] = [
   },
   {
     category: "",
-    description: "",
+    description: "Men's Wear",
     id: 3,
     image: [
       "/products/n5.jpg",
@@ -52,8 +52,55 @@ const Products: FeaturedViewProps[] = [
     rating: [],
     title: "Formal Shirt",
   },
-];
+  {
+    category: "FootWear",
+    description: "",
+    id: 4,
+    image: [
+      "/products/shoe1.jpg",
+      "/products/shoe2.jpg",
+      "/products/shoe3.jpg",
+      "/products/shoe4.jpg",
+      "/products/shoe5.jpg",
+    ],
 
+    price: 500.2,
+    rating: [],
+    title: "Hooka Sports",
+  },
+  {
+    category: "Accessories",
+    description: "",
+    id: 5,
+    image: [
+      "/products/gshock1.jpg",
+      "/products/gshock2.jpg",
+      "/products/gshock3.jpg",
+      "/products/gshock4.jpg",
+      "/products/gshock5.jpg",
+    ],
+
+    price: 750.2,
+    rating: [],
+    title: "Gshcok Watch",
+  },
+  {
+    category: "FootWear",
+    description: "",
+    id: 6,
+    image: [
+      "/products/ltshoe1.jpg",
+      "/products/ltshoe2.jpg",
+      "/products/ltshoe3.jpg",
+      "/products/ltshoe4.jpg",
+      "/products/ltshoe5.jpg",
+    ],
+
+    price: 999,
+    rating: [],
+    title: "Groove Chukka Boots",
+  },
+];
 export default function FeaturedProducts() {
   const [data, setData] = useState(Products);
 
@@ -105,7 +152,7 @@ export function FeaturedView({
     <div className="single__product">
       <Link to={`product/${item.id}`} className="Links">
         <div className="banners__image">
-          <img src={item.image[0]} alt="fa1"></img>
+          <img src={item.image[0]}alt="fa1"></img>
         </div>
       </Link>
       <div className="pip">

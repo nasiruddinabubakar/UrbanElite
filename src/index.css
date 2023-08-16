@@ -145,6 +145,7 @@ header > div > h1 {
 }
 
 .banner__image > img {
+  border: 1px solid var(--bg-greycolor);
   transition: 0.32s ease;
   width: 100%;
 }
@@ -275,6 +276,7 @@ header > div > h1 {
 }
 
 .banners__image > img {
+
   aspect-ratio: 4/4;
   width: 100%;
   object-fit: contain;
@@ -300,6 +302,11 @@ header > div > h1 {
   margin-bottom: 1rem;
   justify-content: space-between;
   display: flex;
+}
+.cart_btn:hover{
+
+  color: rgb(94, 10, 105);
+
 }
 .cart_btn{
   
