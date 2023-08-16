@@ -82,10 +82,10 @@ export default function SingleProduct() {
     <main className="section_product">
       <div className="image_section">
         <div className="banner__image">
-          <img src= "/products/n5.jpg" alt="productpic"></img>
+          <img src= {Products[productId-1].image[imageNo]} alt="productpic"></img>
         </div>
         <div className="gallery">
-          {Products[productId].image.map((ee, i) => (
+          {Products[productId-1].image.map((ee, i) => (
             <GalleryView
               image={ee}
               i={i}
@@ -122,7 +122,8 @@ export function GalleryView({
   );
 }
 
-export function ProductDetails(productId:any) {
+export function ProductDetails({productId}:any) {
+ 
   return (
     <div className="product__details">
       <CategoryName id={productId}/>
@@ -131,8 +132,8 @@ export function ProductDetails(productId:any) {
     </div>
   );
 }
-export function CategoryName({productId }: any) {
-  console.log(productId);
+export function CategoryName({id }: any) {
+ 
   return (
     <>
       {" "}
@@ -140,16 +141,16 @@ export function CategoryName({productId }: any) {
         <span>Home/T-shirt</span>
       </div>
       <div>
-        {/* <h2>{Products[productId].title}</h2> */}
+        <h2>{Products[id-1].title}</h2>
       </div>
     </>
   );
 }
-export function PriceQuantity(productId:any) {
-  console.log(productId.id.productId);
+export function PriceQuantity({id}:any) {
+ 
   return (
     <div className="select_op">
-      {/* <h3>{Products[productId].price} Pkr</h3> */}
+      <h3>{Products[id-1].price} Pkr</h3>
       <select>
         <option value="" disabled selected>
           Size
