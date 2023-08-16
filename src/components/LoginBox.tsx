@@ -13,7 +13,7 @@ export function LoginBox({
   isLogin,
 }: RegisterProps) {
   return (
-    <div className="login front">
+    <div className="login front res">
       <div className="login__heading">
         <h1> Login </h1>
       </div>

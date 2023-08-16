@@ -7,22 +7,26 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { Link } from "react-router-dom";
+import FeaturedProducts from "./FeaturedProduct"; 
 import React from "react";
 
 interface NavItem {
   icon: IconDefinition; // This is where you store FontAwesome icons
   text: string;
+  route:string,
 }
 
 const navArray: NavItem[] = [
-  { icon: faHouse, text: "Home" },
-  { icon: faBolt, text: "Sale" },
-  { icon: faUser, text: "Account" },
-  { icon: faCartShopping, text: "Cart" },
+  { icon: faHouse, text: "Home" ,route:"/"},
+  { icon: faBolt, text: "Sale",route:"/sale" },
+  { icon: faUser, text: "Account",route:"/login" },
+  { icon: faCartShopping, text: "Cart",route:"/cart" },
 ];
 
 export default function Header() {
   return (
+    <>
     <header>
       <Logo />
       <Search />
@@ -34,17 +38,22 @@ export default function Header() {
         </ul>
       </nav>
     </header>
+   
+    </>
   );
 }
 function Logo() {
   return (
     <div>
+      <Link to='/'>
       <h1>UrbanElite</h1>
+      </Link>
     </div>
   );
 }
 function Search() {
   return (
+    
     <div className="searchh">
       <input type="text" placeholder="Search Here" />
       <button>
@@ -60,13 +69,18 @@ interface Nav {
 }
 export function ListComponents({ item }: Nav) {
   return (
+   
     <li>
+       <Link to={item.route}>
       <div className="nav__div">
         <i>
           <FontAwesomeIcon icon={item.icon} />
         </i>
         <label>{item.text}</label>
       </div>
+      </Link>
     </li>
+  
+   
   );
 }
