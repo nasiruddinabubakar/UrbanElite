@@ -187,7 +187,7 @@ export function CategoryName({ id }: any) {
     <>
       {" "}
       <div>
-        <span>Home{Products[id-1].category}</span>
+        <span>Home/{Products[id-1].category}</span>
       </div>
       <div>
         <h2>{Products[id - 1].title}</h2>
@@ -196,6 +196,20 @@ export function CategoryName({ id }: any) {
   );
 }
 export function PriceQuantity({ id }: any) {
+  const [inputValue, setInputValue] = useState(1);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let newValue = Number(event.target.value);
+    
+    // Ensure the value is within the specified range
+    if (newValue < 1) {
+      newValue = 1;
+    } else if (newValue > 5) {
+      newValue = 5;
+    }
+
+    setInputValue(newValue);
+  };
   return (
     <div className="select_op">
       <h3>{Products[id - 1].price} Pkr</h3>
@@ -209,7 +223,7 @@ export function PriceQuantity({ id }: any) {
         <option value="l">L</option>
       </select>
       <div className="qt__cart">
-        <input type="number"></input>
+        <input type="number" value = {inputValue}min={1} max={5} onChange={handleInputChange}></input>
         <button className="add__button">Add to Cart</button>
       </div>
     </div>

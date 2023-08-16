@@ -201,6 +201,7 @@ header > div > h1 {
 }
 .select_op select {
   width: 13%;
+  min-width: 5rem;
   padding: 0.5rem;
   /* display:flex; */
   margin-top: 0.9rem;
@@ -228,7 +229,7 @@ header > div > h1 {
   margin-top: 0.5rem;
 }
 .qt__cart input {
-  width: 5%;
+  width: 3rem;
   padding: 0.7rem 0.4rem;
 }
 .detail__para {
@@ -260,6 +261,7 @@ header > div > h1 {
 }
 
 .single__product {
+  
   flex-grow: 0; /* Prevent the inner div from growing */
   flex-basis: 18rem; /* Set the initial width of the inner div */
   min-width: 14rem;
@@ -495,19 +497,19 @@ a:active, a:hover {
     flex-grow: 1;
   }
   .image_section {
-    width: 100%;
+    width: 83%;
     margin-left: 2rem;
   }
   .section_product {
+    margin-left:0rem;
+    margin-right:0rem;
     flex-direction: column;
   }
-  .image_section {
-    /* margin-left: 2rem; */
-    width: 70%;
-  }
+  
   .product__details {
+    margin:2rem;
     gap: 3rem;
-    width: 80%;
+    width: 90%;
   }
   .detail__para {
     width: 100%;
