@@ -3,6 +3,7 @@ import StarRating from "./StarRating";
 import { Link } from "react-router-dom";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Heading } from "./Heading";
 const Products: FeaturedViewProps[] = [
   {
     category: "Men's Wear",
@@ -82,7 +83,7 @@ const Products: FeaturedViewProps[] = [
 
     price: 750.2,
     rating: [],
-    title: "Gshcok Watch",
+    title: "Gshock Watch",
   },
   {
     category: "FootWear",
@@ -98,7 +99,7 @@ const Products: FeaturedViewProps[] = [
 
     price: 999,
     rating: [],
-    title: "Groove Chukka Boots",
+    title: "Groove Boots",
   },
 ];
 export default function FeaturedProducts() {
@@ -120,14 +121,14 @@ export default function FeaturedProducts() {
   //   getProducts();
   // }, []);
   return (
-    <>
-      <Heading />
+    <div className="featured__container">
+      <Heading heading={'Featured Products'}/>
       <div className="featured__products">
         {data.map((item, i) => (
           <FeaturedView key={i} item={item} i={i + 1} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 interface FeaturedViewProps {
@@ -173,10 +174,4 @@ export function FeaturedView({
     </div>
   );
 }
-export function Heading() {
-  return (
-    <div className="featured__heading">
-      <h1>Featured Products</h1>
-    </div>
-  );
-}
+
