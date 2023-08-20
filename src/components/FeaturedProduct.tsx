@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Heading } from "./Heading";
+import HeroSection from "./HeroSection";
 const Products: FeaturedViewProps[] = [
   {
     category: "Men's Wear",
@@ -85,22 +86,22 @@ const Products: FeaturedViewProps[] = [
     rating: [],
     title: "Gshock Watch",
   },
-  {
-    category: "FootWear",
-    description: "",
-    id: 6,
-    image: [
-      "/products/ltshoe1.jpg",
-      "/products/ltshoe2.jpg",
-      "/products/ltshoe3.jpg",
-      "/products/ltshoe4.jpg",
-      "/products/ltshoe5.jpg",
-    ],
+  // {
+  //   category: "FootWear",
+  //   description: "",
+  //   id: 6,
+  //   image: [
+  //     "/products/ltshoe1.jpg",
+  //     "/products/ltshoe2.jpg",
+  //     "/products/ltshoe3.jpg",
+  //     "/products/ltshoe4.jpg",
+  //     "/products/ltshoe5.jpg",
+  //   ],
 
-    price: 999,
-    rating: [],
-    title: "Groove Boots",
-  },
+  //   price: 999,
+  //   rating: [],
+  //   title: "Groove Boots",
+  // },
 ];
 export default function FeaturedProducts() {
   const [data, setData] = useState(Products);
@@ -121,7 +122,9 @@ export default function FeaturedProducts() {
   //   getProducts();
   // }, []);
   return (
-    <div className="featured__container">
+    <>
+    <HeroSection />
+    <div id="featured" className="featured__container">
       <Heading heading={'Featured Products'}/>
       <div className="featured__products">
         {data.map((item, i) => (
@@ -129,6 +132,7 @@ export default function FeaturedProducts() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 interface FeaturedViewProps {

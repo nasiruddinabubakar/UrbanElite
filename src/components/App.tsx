@@ -6,6 +6,7 @@ import Signup from "./Signup";
 import SingleProduct from "./SingleProduct";
 import Cart from "./Cart";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
+import Footer from "./Footer";
 export default function App() {
   return (
           <>
@@ -18,7 +19,7 @@ export default function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<Signup />} />
             </Routes>
-           
+            <Footer/>
            </BrowserRouter>
            </>
   );

@@ -1,5 +1,5 @@
 import {
-  faBolt,
+  faWarehouse,
   faUser,
   faCartShopping,
   faHouse,
@@ -9,35 +9,77 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "react-router-dom";
 import FeaturedProducts from "./FeaturedProduct";
-import React, { ChangeEvent, useState } from "react";
+import HeroSection from './HeroSection'
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 interface NavItem {
   icon: IconDefinition; // This is where you store FontAwesome icons
   text: string;
   route: string;
 }
-
+const searchIconPropertie: NavItem = {
+  icon: faSearch,
+  text: "Home",
+  route: "/",
+};
 const navArray: NavItem[] = [
   { icon: faHouse, text: "Home", route: "/" },
-  { icon: faBolt, text: "Sale", route: "/sale" },
+  { icon: faWarehouse, text: "Articles", route: "/sale" },
   { icon: faUser, text: "Account", route: "/login" },
   { icon: faCartShopping, text: "Cart", route: "/cart" },
 ];
 
 export default function Header() {
+  const [showIcon, setShowSearchIcon] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Update the window width when the window is resized
+
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  if (windowWidth < 830 && !showIcon) {
+    setShowSearchIcon(true);
+  }
+
+  if (windowWidth > 830 && showIcon) {
+    setShowSearchIcon(false);
+  }
+
   return (
     <>
       <header>
         <Logo />
-        <Search />
+        {!showIcon && <Search />}
         <nav className="navlist">
           <ul className="navli">
+            {showIcon && (
+              <li>
+                <div className="nav__div">
+                  <i>
+                    <FontAwesomeIcon icon={faSearch} />
+                  </i>
+                  <label>Search</label>
+                </div>
+              </li>
+            )}
             {navArray.map((item) => (
               <ListComponents item={item} />
             ))}
           </ul>
         </nav>
       </header>
+     
     </>
   );
 }
@@ -62,24 +104,27 @@ function Search() {
   }
 
   return (
-    <div className="searchh">
+    <div
+      style={searchStatus ? { borderRadius: " 1.5rem 1.5rem 0rem 0rem" } : {}}
+      className="searchh"
+    >
       <input type="text" placeholder="Search Here" onChange={handleSearch} />
       <button>
         <i>
           <FontAwesomeIcon icon={faSearch} />
         </i>
       </button>
-      <div className="dropdownsearch">
-        {searchStatus && (
-          <ul>
-            <li>papa</li>
-            <li>papa</li>
-            <li>papa</li>
-            <li>papa</li>
-            <li>papa</li>
+      {searchStatus && (
+        <div className="dropdownsearch">
+          <ul style={{ fontSize: "14px", fontWeight: 400 }}>
+            <li style={{ paddingTop: "4px" }}>this is a search</li>
+            <li style={{ paddingTop: "4px" }}>this is a search</li>
+            <li style={{ paddingTop: "4px" }}>this is a search</li>
+            <li style={{ paddingTop: "4px" }}>this is a search</li>
+            <li style={{ paddingTop: "4px" }}>this is a search</li>
           </ul>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

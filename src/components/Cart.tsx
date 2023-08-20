@@ -26,7 +26,10 @@ export default function () {
                 <h3> 2 </h3>
               </div>
             </div>
+            <div className = "addsub">
+            <button>➖</button>
             <button>➕</button>
+            </div>
           </div>
           <div className="added__products">
             <button>❌</button>
@@ -47,7 +50,10 @@ export default function () {
                 <h3> 2 </h3>
               </div>
             </div>
+            <div className = "addsub">
+            <button>➖</button>
             <button>➕</button>
+            </div>
           </div>
           <div className="added__products">
             <button>❌</button>
@@ -68,7 +74,10 @@ export default function () {
                 <h3> 2 </h3>
               </div>
             </div>
+            <div className = "addsub">
+            <button>➖</button>
             <button>➕</button>
+            </div>
           </div>
           <div className="added__products">
             <button>❌</button>
@@ -89,7 +98,10 @@ export default function () {
                 <h3> 2 </h3>
               </div>
             </div>
+            <div className = "addsub">
+            <button>➖</button>
             <button>➕</button>
+            </div>
           </div>
         </div>
         <div className="summary-section">
