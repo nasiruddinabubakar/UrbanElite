@@ -791,6 +791,12 @@ a:active, a:hover {
   }
 }
 @media screen and (max-width: 481px) {
+  .cart__shell{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   header{
     padding: 0;
   }
@@ -841,7 +847,20 @@ a:active, a:hover {
   .summary-section{
     margin-top: 3rem;
     margin-bottom: 1rem;
+    width: 85%;
   }
+  .cart__shell{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cart{
+    color: #021a1a;
+    margin: 4rem 1rem;
+  }
+
 }
 @media screen and (max-width: 880px ) and (min-width:482px) {
   .nav__div:hover label {
