@@ -794,6 +794,22 @@ a:active, a:hover {
   header{
     padding: 0;
   }
+  .hero{
+    
+  /* height: 70vh; */
+  padding: 0 20px;
+  background-position: 55%;
+}
+.hero h2{
+  font-size: 36px;
+  padding-bottom: 0px;
+}
+.hero h1{
+  font-size: 36px;
+}
+.hero p{
+  font-size: 13px;
+}
   .login,.register {
     
     margin: 0rem 1rem;
@@ -827,7 +843,7 @@ a:active, a:hover {
     margin-bottom: 1rem;
   }
 }
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 880px ) and (min-width:482px) {
   .nav__div:hover label {
    
     opacity: 0;
