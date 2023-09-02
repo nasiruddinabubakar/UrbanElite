@@ -453,8 +453,8 @@ header > div > h1 {
 }
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;s */
+  /* align-items: center; */
   transition: 0.32s ease;
   height: 90vh;
   width: 100%;
@@ -462,7 +462,7 @@ header > div > h1 {
 .login {
   position: relative;
   transition: 0.32s ease;
-
+  margin: 8rem auto;
   box-shadow: 0px 0px 15px 5px rgb(206, 205, 205);
   /* border: 2px solid rgb(216, 211, 211); */
   border-radius: 0.5rem;
@@ -480,6 +480,7 @@ header > div > h1 {
   position: relative;
   transition: 0.32s ease;
   min-height: 60vh;
+  margin:6rem auto;
   box-shadow: 0px 0px 15px 5px rgb(206, 205, 205);
   /* border: 2px solid rgb(216, 211, 211); */
   border-radius: 0.5rem;
@@ -756,6 +757,23 @@ a:active, a:hover {
   .detail__para p {
     font-size: 0.9rem;
   }
+.login div>label,
+.register div>label{
+  font-size: 14px;
+}
+.login div>h1,
+.register div>h1{
+  font-size: 24px;
+}
+.form div>button,
+.form2 div>button{
+  font-size: small;
+  padding: 0.6rem 1.5rem;
+}
+.login div>input,.register div>input{
+
+  margin-top: 0rem;
+}
 }
 @media screen and (max-width: 600px) {
  
@@ -818,7 +836,7 @@ a:active, a:hover {
 }
   .login,.register {
     
-    margin: 0rem 1rem;
+    margin: 8rem 0.5rem;
     font-size: medium;
     min-width: 21vh;
   }
