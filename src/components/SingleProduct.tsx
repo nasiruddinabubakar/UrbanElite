@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getProduct } from "../actions/actionsProducts";
 
 interface FeaturedViewProps {
   category: string;
@@ -113,6 +115,12 @@ const Products: FeaturedViewProps[] = [
 export default function SingleProduct() {
   const [imageNo, setImageNo] = useState<number>(0);
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const Product = dispatch(getProduct(id));
+  const product:FeaturedViewProps = useSelector((state: any) => state.products.Product);
+  console.log("pro",product);
+
+  // console.log(Product, id);
   if (!id) {
     // Handle the case where "id" is undefined or falsy
     return <div>No product ID provided</div>;
@@ -122,18 +130,17 @@ export default function SingleProduct() {
   function handleSetImage(index: number) {
     setImageNo(index);
   }
-
   return (
     <main className="section_product">
       <div className="image_section">
         <div className="banner__image">
           <img
-            src={Products[productId - 1].image[imageNo]}
+            src={product.image[imageNo]}
             alt="productpic"
           ></img>
         </div>
         <div className="gallery">
-          {Products[productId - 1].image.map((ee, i) => (
+          {product.image.map((ee, i) => (
             <GalleryView
               image={ee}
               i={i}
@@ -144,7 +151,7 @@ export default function SingleProduct() {
           ))}
         </div>
       </div>
-      <ProductDetails productId={productId} />
+      <ProductDetails   />
     </main>
   );
 }
@@ -173,34 +180,35 @@ export function GalleryView({
   );
 }
 
-export function ProductDetails({ productId }: any) {
+export function ProductDetails() {
   return (
     <div className="product__details">
-      <CategoryName id={productId} />
-      <PriceQuantity id={productId} />
+      <CategoryName  />
+      <PriceQuantity />
       <Paragraph />
     </div>
   );
 }
-export function CategoryName({ id }: any) {
+export function CategoryName() {
+  const product:FeaturedViewProps = useSelector((state: any) => state.products.Product);
   return (
     <>
       {" "}
       <div>
-        <span>Home/{Products[id-1].category}</span>
+        <span>Home/{product.category}</span>
       </div>
       <div>
-        <h2>{Products[id - 1].title}</h2>
+        <h2>{product.title}</h2>
       </div>
     </>
   );
 }
-export function PriceQuantity({ id }: any) {
+export function PriceQuantity() {
   const [inputValue, setInputValue] = useState(1);
-
+  const product:FeaturedViewProps = useSelector((state: any) => state.products.Product);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = Number(event.target.value);
-    
+
     // Ensure the value is within the specified range
     if (newValue < 1) {
       newValue = 1;
@@ -212,7 +220,7 @@ export function PriceQuantity({ id }: any) {
   };
   return (
     <div className="select_op">
-      <h3>{Products[id - 1].price} Pkr</h3>
+      <h3>{product.price} Pkr</h3>
       <select>
         <option value="" disabled selected>
           Size
@@ -223,7 +231,13 @@ export function PriceQuantity({ id }: any) {
         <option value="l">L</option>
       </select>
       <div className="qt__cart">
-        <input type="number" value = {inputValue}min={1} max={5} onChange={handleInputChange}></input>
+        <input
+          type="number"
+          value={inputValue}
+          min={1}
+          max={5}
+          onChange={handleInputChange}
+        ></input>
         <button className="add__button">Add to Cart</button>
       </div>
     </div>

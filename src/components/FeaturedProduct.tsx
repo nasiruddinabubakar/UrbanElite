@@ -5,7 +5,9 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Heading } from "./Heading";
 import HeroSection from "./HeroSection";
-const Products: FeaturedViewProps[] = [
+import { useDispatch ,useSelector} from "react-redux";
+import { setProducts } from "../actions/actionsProducts";
+const Productsarr: FeaturedViewProps[] = [
   {
     category: "Men's Wear",
     description: "",
@@ -104,30 +106,29 @@ const Products: FeaturedViewProps[] = [
   // },
 ];
 export default function FeaturedProducts() {
-  const [data, setData] = useState(Products);
+  
+const dispatch = useDispatch();
+  
+      try {
+        dispatch(setProducts(Productsarr));
 
-  // useEffect(() => {
-  //   async function getProducts() {
-  //     try {
-  //       const response = await fetch(
-  //         "https://fakestoreapi.com/products?limit=10"
-  //       );
-  //       const jsonData = await response.json();
-  //       setData(jsonData);
-  //     } catch (error) {
-  //       console.error("Error fetching products:", error);
-  //     }
-  //   }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    
 
-  //   getProducts();
-  // }, []);
+    const Products = useSelector((store:any)=>store.products.Products);
+  // console.log(Products);
+  const [data,setData]= useState(Products);
+
+  
   return (
     <>
     <HeroSection />
     <div id="featured" className="featured__container">
       <Heading heading={'Featured Products'}/>
       <div className="featured__products">
-        {data.map((item, i) => (
+        {data.map((item:any, i:number) => (
           <FeaturedView key={i} item={item} i={i + 1} />
         ))}
       </div>

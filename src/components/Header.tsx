@@ -73,8 +73,8 @@ export default function Header() {
                 </div>
               </li>
             )}
-            {navArray.map((item) => (
-              <ListComponents item={item} />
+            {navArray.map((item,i) => (
+              <ListComponents item={item} key={i} />
             ))}
           </ul>
         </nav>
