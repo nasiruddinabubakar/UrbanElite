@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { unstable_HistoryRouter, useNavigate, useParams } from "react-router-dom";
 import { getProduct } from "../actions/actionsProducts";
+import { addItem } from "../actions/actionsCart";
 
 interface FeaturedViewProps {
   category: string;
@@ -13,119 +14,26 @@ interface FeaturedViewProps {
   title: string;
 }
 
-const Products: FeaturedViewProps[] = [
-  {
-    category: "Men's Wear",
-    description: "",
-    id: 1,
-    image: [
-      "/products/f1.jpg",
-      "/products/f2.jpg",
-      "/products/f3.jpg",
-      "/products/f4.jpg",
-      "/products/f5.jpg",
-    ],
 
-    price: 132.2,
-    rating: [],
-    title: "Miami Vibe T-Shirt",
-  },
-  {
-    category: "Mens'Wear",
-    description: "",
-    id: 2,
-    image: [
-      "/products/f3.jpg",
-      "/products/f2.jpg",
-      "/products/f1.jpg",
-      "/products/f4.jpg",
-      "/products/f5.jpg",
-    ],
 
-    price: 112.2,
-    rating: [],
-    title: "Swagger T-Shirt",
-  },
-  {
-    category: "",
-    description: "Men's Wear",
-    id: 3,
-    image: [
-      "/products/n5.jpg",
-      "/products/n1.jpg",
-      "/products/n2.jpg",
-      "/products/n3.jpg",
-      "/products/n7.jpg",
-    ],
-
-    price: 200.2,
-    rating: [],
-    title: "Formal Shirt",
-  },
-  {
-    category: "FootWear",
-    description: "",
-    id: 4,
-    image: [
-      "/products/shoe1.jpg",
-      "/products/shoe2.jpg",
-      "/products/shoe3.jpg",
-      "/products/shoe4.jpg",
-      "/products/shoe5.jpg",
-    ],
-
-    price: 500.2,
-    rating: [],
-    title: "Hooka Sports",
-  },
-  {
-    category: "Accessories",
-    description: "",
-    id: 5,
-    image: [
-      "/products/gshock1.jpg",
-      "/products/gshock2.jpg",
-      "/products/gshock3.jpg",
-      "/products/gshock4.jpg",
-      "/products/gshock5.jpg",
-    ],
-
-    price: 750.2,
-    rating: [],
-    title: "Gshcok Watch",
-  },
-  {
-    category: "FootWear",
-    description: "",
-    id: 6,
-    image: [
-      "/products/ltshoe1.jpg",
-      "/products/ltshoe2.jpg",
-      "/products/ltshoe3.jpg",
-      "/products/ltshoe4.jpg",
-      "/products/ltshoe5.jpg",
-    ],
-
-    price: 999,
-    rating: [],
-    title: "Groove Chukka Boots",
-  },
-];
-
-export default function SingleProduct() {
+const SingleProduct=()=> {
   const [imageNo, setImageNo] = useState<number>(0);
+  const navigate =useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const Product = dispatch(getProduct(id));
-  const product:FeaturedViewProps = useSelector((state: any) => state.products.Product);
-  console.log("pro",product);
-
-  // console.log(Product, id);
+  dispatch(getProduct(id));
+  const product: FeaturedViewProps = useSelector((state: any) => state.products.Product);
   if (!id) {
     // Handle the case where "id" is undefined or falsy
     return <div>No product ID provided</div>;
   }
-  const productId = parseInt(id, 10);
+  
+  
+  
+  // console.log("pro", product);
+
+  // console.log(Product, id);
+  
 
   function handleSetImage(index: number) {
     setImageNo(index);
@@ -146,12 +54,11 @@ export default function SingleProduct() {
               i={i}
               key={i}
               onChangeImage={handleSetImage}
-              border={imageNo === i ? "1px solid #1c9c9c" : ""}
-            />
+              border={imageNo === i ? "1px solid #1c9c9c" : ""} />
           ))}
         </div>
       </div>
-      <ProductDetails   />
+      <ProductDetails />
     </main>
   );
 }
@@ -180,7 +87,7 @@ export function GalleryView({
   );
 }
 
-export function ProductDetails() {
+export const ProductDetails=()=>{
   return (
     <div className="product__details">
       <CategoryName  />
@@ -189,7 +96,7 @@ export function ProductDetails() {
     </div>
   );
 }
-export function CategoryName() {
+export const CategoryName=() =>{
   const product:FeaturedViewProps = useSelector((state: any) => state.products.Product);
   return (
     <>
@@ -203,8 +110,11 @@ export function CategoryName() {
     </>
   );
 }
-export function PriceQuantity() {
+export const  PriceQuantity=()=> {
   const [inputValue, setInputValue] = useState(1);
+  const[size,setSize]=useState('XS');
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
   const product:FeaturedViewProps = useSelector((state: any) => state.products.Product);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = Number(event.target.value);
@@ -218,17 +128,24 @@ export function PriceQuantity() {
 
     setInputValue(newValue);
   };
+  function handleSize(e:React.ChangeEvent<HTMLSelectElement>){
+        setSize(s=>e.target.value);
+  }
+  function handleAddCart(){
+    const cartPro = {...product,quantity:inputValue,size:size};
+dispatch(addItem(cartPro))
+    // navigate('/cart');
+
+  }
   return (
     <div className="select_op">
       <h3>{product.price} Pkr</h3>
-      <select>
-        <option value="" disabled selected>
-          Size
-        </option>
-        <option value="xs">XS</option>
-        <option value="s">S</option>
-        <option value="m">M</option>
-        <option value="l">L</option>
+      <select value={size}onChange={handleSize}>
+                
+        <option value="XS">XS</option>
+        <option value="XM">XM</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
       </select>
       <div className="qt__cart">
         <input
@@ -238,7 +155,7 @@ export function PriceQuantity() {
           max={5}
           onChange={handleInputChange}
         ></input>
-        <button className="add__button">Add to Cart</button>
+        <button className="add__button" onClick={handleAddCart}>Add to Cart</button>
       </div>
     </div>
   );
@@ -262,3 +179,4 @@ export function Paragraph() {
     </div>
   );
 }
+export default SingleProduct;

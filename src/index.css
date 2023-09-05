@@ -591,8 +591,12 @@ a:active, a:hover {
  
 }
 .cart__shell{
-  display: flex;
-  justify-content: space-around;
+  display:flex;
+  flex-direction: column;
+  min-width: 100%;
+  justify-content:center;
+  align-items: center;
+  gap:2rem;
 }
 .cart{
   box-shadow: 0px 0px 10px 1px rgb(212, 211, 211);;
@@ -608,8 +612,11 @@ a:active, a:hover {
 }
 #pro--img{
   position: relative;
-  width: 10%;
+  min-width: 10%;
+  width: 130px;
+  height: 134px;
  border:1px solid rgb(202, 197, 197)
+ /* border:1px solid rgb(90, 15, 15) */
   
 }
 #pro--img>img{
@@ -618,11 +625,11 @@ a:active, a:hover {
 .inner__products{
   margin: 0.5rem 0rem;
   align-items: center;
-  /* width: 100%; */
+  width: 85vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
- 
+ /* border: 2PX solid green; */
   
 }
 .added__products{
@@ -630,7 +637,7 @@ a:active, a:hover {
   align-items: center;
   display: flex;
   justify-content: space-evenly;
-  /* border-bottom:1px solid grey */
+  /* border:1px solid grey */
 }
 .added__products >button{
   border: none;
@@ -666,13 +673,13 @@ a:active, a:hover {
 
 .summary-section{
   /* border: 1px solid #b0b3b3; */
-  box-shadow: 0px 0px 10px 1px rgb(212, 211, 211);
+  box-shadow: 0px 0px 10px 4px rgb(212, 211, 211);
   flex-direction: column;
   /* justify-content: center; */
   display: flex;
   /* margin-right: 4rem; */
   margin-top: 5rem;
-  width: 21rem;
+  width: 35rem;
   padding: 16px 12px;
   background: #fff;
   
@@ -759,7 +766,7 @@ a:active, a:hover {
   }
 .login div>label,
 .register div>label{
-  font-size: 14px;
+  font-size: 12px;
 }
 .login div>h1,
 .register div>h1{

@@ -4,9 +4,11 @@ const initialState = {
 };
 
 export const cartReducer = (state = initialState, { type, payload }) => {
+  console.log('cart reducerpayload',payload);
   switch (type) {
     case "ADD_ITEM":
-      return { ...state, cartItems: state.cartItems.push(payload) };
+      // debugger;
+      return { ...state, cartItems: [...state.cartItems, payload] };
     case "REMOVE_ITEM":
       return {
         ...state,

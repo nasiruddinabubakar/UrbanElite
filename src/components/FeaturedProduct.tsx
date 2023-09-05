@@ -7,6 +7,7 @@ import { Heading } from "./Heading";
 import HeroSection from "./HeroSection";
 import { useDispatch ,useSelector} from "react-redux";
 import { setProducts } from "../actions/actionsProducts";
+import { addItem } from "../actions/actionsCart";
 const Productsarr: FeaturedViewProps[] = [
   {
     category: "Men's Wear",
@@ -154,6 +155,13 @@ export function FeaturedView({
   item: FeaturedViewProps;
   i: number;
 }) {
+  const dispatch=useDispatch();
+  function handleAddCart(){
+    const cartPro = {...item,quantity:1,size:'XS'};
+dispatch(addItem(cartPro))
+    // navigate('/cart');
+
+  }
   return (
     <div className="single__product">
       <Link to={`product/${item.id}`} className="Links">
@@ -171,7 +179,7 @@ export function FeaturedView({
           {/* <StarRating maxRating={5} /> */}
         </div>
        
-        <button className="cart_btn" onClick={(e) => console.log(e)}>
+        <button className="cart_btn" onClick={handleAddCart}>
           <FontAwesomeIcon icon={faCartShopping} />
         </button>
         

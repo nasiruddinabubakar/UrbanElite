@@ -1,8 +1,8 @@
 export const addItem = (Item) => {
-  
-    return { type: "ADD_ITEM", Item };
+    console.log('actions ',Item);
+    return { type: "ADD_ITEM",payload: Item };
   };
-  export const getProduct = (ProductID) => {
+  export const removeItem = (ProductID) => {
     return { type: "REMOVE_ITEM", payload: ProductID };
   };
   
